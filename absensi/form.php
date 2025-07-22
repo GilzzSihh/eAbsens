@@ -1,4 +1,15 @@
 <?php
+session_start();
+include '../config/db.php';
+
+if ($_SESSION['role'] == 'guru') {
+    $kelas_id = $_SESSION['id_kelas'];
+    $q = mysqli_query($conn, "SELECT * FROM siswa WHERE id_kelas = '$kelas_id'");
+} else {
+    $q = mysqli_query($conn, "SELECT * FROM siswa");
+}
+
+
 include '../config/db.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach ($_POST['absen'] as $id_siswa => $ket) {

@@ -2,7 +2,7 @@
 include '../config/db.php';
 $q = mysqli_query($conn, "SELECT s.*, k.nama_kelas FROM siswa s JOIN kelas k ON s.id_kelas = k.id");
 ?>
-
+<link rel="stylesheet" href="../assets/style.css">
 <div class="container">
 <h2>Data Siswa</h2>
 <a href="tambah.php">Tambah Siswa</a>
